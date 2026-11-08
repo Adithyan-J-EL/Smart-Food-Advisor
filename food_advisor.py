@@ -58,3 +58,24 @@ def predict_nutrition(food_name, quantity):
         fat * quantity
     )
 
+
+# ---------------------------------------------------------------------------
+# Price mapping, healthy alternatives and initialization
+# ---------------------------------------------------------------------------
+price_map = {"pizza": 120, "burger": 100, "rice": 40,
+             "dosa": 50, "idli": 30, "apple": 20, "banana": 15
+             }
+
+healthy_alt = {"pizza": "dosa or idli",
+               "burger": "rice with vegetables", "rice": "idli",
+               "dosa": "idli", "idli": "apple", "apple": "banana",
+               "banana": "apple"
+               }
+daily_limit = int(input("Enter your daily calorie limit: "))
+
+total_calories = 0
+total_cost = 0
+
+food_list = []
+calorie_list = []
+cost_list = []
