@@ -79,3 +79,30 @@ total_cost = 0
 food_list = []
 calorie_list = []
 cost_list = []
+
+# ---------------------------------------------------------------------------
+# User interaction & data collection
+# ---------------------------------------------------------------------------
+while True:
+    food = input("\nEnter food item: ").lower()
+    qty = int(input("Enter quantity: "))
+
+    if food not in price_map:
+        print("Food not found in database.")
+        continue
+    cal, prot, carb, fat = predict_nutrition(food, qty)
+    cost = price_map[food] * qty
+    total_calories += cal
+    total_cost += cost
+    food_list.append(food)
+    calorie_list.append(cal)
+    cost_list.append(cost)
+    print("\nAdded:", food)
+    print(f"Calories: {cal:.2f} kcal")
+    print(f"Protein : {prot:.2f} g")
+    print(f"Carbs   : {carb:.2f} g")
+    print(f"Fat     : {fat:.2f} g")
+    print(f"Cost    : ₹{cost}")
+    more = input("Do you want to add another food item? (yes/no): ").lower()
+    if more != "yes":
+        break
