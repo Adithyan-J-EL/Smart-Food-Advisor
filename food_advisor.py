@@ -41,3 +41,20 @@ y = df[["calories", "protein", "carbs", "fat"]]
 model = MultiOutputRegressor(LinearRegression())
 model.fit(X, y)
 
+
+# ---------------------------------------------------------------------------
+# Nutrition prediction function
+# ---------------------------------------------------------------------------
+def predict_nutrition(food_name, quantity):
+    food_vec = vectorizer.transform([food_name])
+    prediction = model.predict(food_vec)[0]
+
+    calories, protein, carbs, fat = prediction
+
+    return (
+        calories * quantity,
+        protein * quantity,
+        carbs * quantity,
+        fat * quantity
+    )
+
