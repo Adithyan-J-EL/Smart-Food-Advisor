@@ -31,3 +31,13 @@ food_data = {
 }
 
 df = pd.DataFrame(food_data)
+
+# ---------------------------------------------------------------------------
+# AI model training (TF-IDF + Linear Regression via MultiOutputRegressor)
+# ---------------------------------------------------------------------------
+vectorizer = TfidfVectorizer()
+X = vectorizer.fit_transform(df["food"])
+y = df[["calories", "protein", "carbs", "fat"]]
+model = MultiOutputRegressor(LinearRegression())
+model.fit(X, y)
+
