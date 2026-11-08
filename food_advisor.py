@@ -129,3 +129,21 @@ else:
 print("\nHealthy Alternatives:")
 for food in food_list:
     print(f"Instead of {food}, try {healthy_alt[food]}")
+
+# ---------------------------------------------------------------------------
+# Meal health score & rating
+# ---------------------------------------------------------------------------
+score = 10
+if total_calories > daily_limit:
+    score -= 3
+if total_cost > 300:
+    score -= 2
+score = max(0, min(10, score))
+print("\nOverall Meal Health Score:", score, "/ 10")
+if score >= 8:
+    rating = "Healthy"
+elif score >= 5:
+    rating = "Moderate"
+else:
+    rating = "Unhealthy"
+print("Meal Rating:", rating)
