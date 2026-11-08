@@ -106,3 +106,26 @@ while True:
     more = input("Do you want to add another food item? (yes/no): ").lower()
     if more != "yes":
         break
+
+# ---------------------------------------------------------------------------
+# Report generation & AI advice
+# ---------------------------------------------------------------------------
+print("\nAI Food Expense & Health Report")
+print("--------------------------------")
+print("Foods consumed:", food_list)
+print(f"Total Calories: {total_calories:.2f} kcal")
+print(f"Total Expense : ₹{total_cost}")
+
+if total_calories > daily_limit:
+    print("Health Advice : You exceeded your daily calorie limit.")
+else:
+    print("Health Advice : Calorie intake is within your limit.")
+
+if total_cost > 300:
+    print("Expense Advice: High food spending. Try budget-friendly meals.")
+else:
+    print("Expense Advice: Expense is under control.")
+
+print("\nHealthy Alternatives:")
+for food in food_list:
+    print(f"Instead of {food}, try {healthy_alt[food]}")
