@@ -147,3 +147,16 @@ elif score >= 5:
 else:
     rating = "Unhealthy"
 print("Meal Rating:", rating)
+
+# ---------------------------------------------------------------------------
+# Graph visualization
+# ---------------------------------------------------------------------------
+plt.figure()
+plt.bar(food_list, calorie_list, label="Calories")
+plt.bar(food_list, cost_list, bottom=calorie_list,
+        label="Cost (₹)")
+plt.xlabel("Food Items")
+plt.ylabel("Calories / Cost")
+plt.title("Calories vs Expense per Food Item")
+plt.legend()
+plt.show()
